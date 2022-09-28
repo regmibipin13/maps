@@ -41,7 +41,6 @@ class _DetailsState extends State<Details> {
   void initState() {
     // TODO: implement initState
     super.initState();
-
     loadPhotos();
   }
 
@@ -53,7 +52,6 @@ class _DetailsState extends State<Details> {
     for (int i = 0; i < listPhotos.length; i++) {
       destination.add(Photo(detailId: widget.id, name: listPhotos[i].name));
     }
-
     setState(() {});
   }
 
@@ -61,6 +59,7 @@ class _DetailsState extends State<Details> {
   @override
   Widget build(BuildContext context) {
     final textScale = MediaQuery.of(context).textScaleFactor;
+
     return Scaffold(
       body: Stack(
         children: [
@@ -140,6 +139,7 @@ class _DetailsState extends State<Details> {
                                         details: detailsController.text,
                                       ),
                                     );
+                                    loadPhotos();
                                     Navigator.pushAndRemoveUntil(
                                         context,
                                         MaterialPageRoute(
