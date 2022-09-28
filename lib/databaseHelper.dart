@@ -122,15 +122,14 @@ CREATE TABLE photos(
       await Permission.storage.request();
     }
 
+    Directory documentsDirectory = await getApplicationDocumentsDirectory();
+    String path = join(documentsDirectory.path, 'maps.db');
+
     FilePickerResult? result = await FilePicker.platform.pickFiles();
 
     if (result != null) {
       File file = File(result.files.single.path.toString());
-      // Directory folderPathForDBFile = Directory(DB_PATH);
-      // await folderPathForDBFile.create();
-      await file.copy(DB_PATH + '/' + DB_NAME);
-      // print(DB_PATH);
-      // file.copy(DB_PATH + '/maps.db');
+      file.copy(path);
       return true;
     } else {
       print("Picker Cancelled");

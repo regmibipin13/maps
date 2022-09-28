@@ -217,16 +217,16 @@ class _HomepageState extends State<Homepage> {
                                                         children: [
                                                           TextButton(
                                                               onPressed: () {
-                                                                DataBaseHelper
-                                                                    .instance
-                                                                    .remove(
-                                                                        element
-                                                                            .id!);
-                                                                _customInfoWindowController
-                                                                    .hideInfoWindow!();
-                                                                Navigator.pop(
-                                                                    context);
-                                                                setState(() {});
+                                                                setState(() {
+                                                                  DataBaseHelper
+                                                                      .instance
+                                                                      .remove(element
+                                                                          .id!);
+                                                                  _customInfoWindowController
+                                                                      .hideInfoWindow!();
+                                                                  Navigator.pop(
+                                                                      context);
+                                                                });
                                                               },
                                                               child:
                                                                   Text("Yes")),
